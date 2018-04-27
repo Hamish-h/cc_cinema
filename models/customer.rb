@@ -13,8 +13,8 @@ class Customer
   def save()
       sql = "INSERT INTO customer (name, funds) values ($1, $2) RETURNING id"
       values = [@name, @funds]
-      star = SqlRunner.run(sql, values).first()
-      @id = star["id"].to_i
+      customer = SqlRunner.run(sql, values).first()
+      @id = customer["id"].to_i
     end
 
     def update()

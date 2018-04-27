@@ -8,23 +8,24 @@ require_relative("../models/customer.rb")
 # Ticket.delete_all()
 # Customer.delete_all()
 
-Film1 = Film.new({
+film1 = Film.new({
   "title" => "Doom",
   "ticket_price" => 500
 })
-Film1.save()
+film1.save()
 
-Film2 = Film.new({
+
+film2 = Film.new({
   "title" => "Star Wars, The Empire Strikes Back",
   "ticket_price" => 500
 })
-Film2.save()
+film2.save()
 
-Film3 = Film.new({
+film3 = Film.new({
   "title" => "Tron",
   "ticket_price" => 500
 })
-Film3.save()
+film3.save()
 
 customer1 = Customer.new({
   "name" => "William Goldman",
@@ -38,7 +39,7 @@ customer2 = Customer.new({
 })
 customer2.save()
 
-customer1 = Customer.new({
+customer3 = Customer.new({
   "name" => "Inigo Montoya",
   "funds" => 1000
 })

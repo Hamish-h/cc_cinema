@@ -4,16 +4,15 @@ require_relative("../models/film.rb")
 require_relative("../models/ticket.rb")
 require_relative("../models/customer.rb")
 
-Film.delete_all()
-Ticket.delete_all()
-Customer.delete_all()
+# Film.delete_all()
+# Ticket.delete_all()
+# Customer.delete_all()
 
 film1 = Film.new({
   "title" => "Doom",
   "ticket_price" => 500
 })
 film1.save()
-
 
 film2 = Film.new({
   "title" => "Star Wars, The Empire Strikes Back",

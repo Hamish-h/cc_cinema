@@ -1,7 +1,6 @@
 require_relative("../db/sql_runner")
 require_relative("film")
 
-
 class Customer
   attr_reader :id
   attr_accessor :name, :funds
@@ -46,5 +45,4 @@ class Customer
       result = results.map{|hash| Film.new(hash)}
       return result
     end
-
 end

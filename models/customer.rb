@@ -10,4 +10,23 @@ class Customer
       @ticket_id = options["ticket_id"].to_i
     end
 
+  def save()
+      sql = "INSERT INTO customer (name, funds) values ($1, $2) RETURNING id"
+      values = [@name, @funds]
+      star = SqlRunner.run(sql, values).first()
+      @id = star["id"].to_i
+    end
+
+    def update()
+      sql = "UPDATE customer SET (name, funds) = ($1, $2) WHERE id = $3"
+      values = [@name, @funds]
+      SqlRunner.run(sql, values)
+    end
+
+    def delete()
+      sql = "DELETE FROM films WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
+
 end

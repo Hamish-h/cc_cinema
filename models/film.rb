@@ -8,12 +8,12 @@ class Film
       @id = options["id"].to_i if options["id"]
       @title = options["title"]
       @ticket_price = options["ticket_price"].to_i
-    end
+  end
 
     def save()
       sql = "INSERT INTO films (title, ticket_price) values ($1, $2) RETURNING id"
       values = [@title, @ticket_price]
-      movie = SqlRunner.run(sql, values).first()
+      film = SqlRunner.run(sql, values).first()
       @id = film["id"].to_i
     end
 
@@ -28,5 +28,4 @@ class Film
       values = [@id]
       SqlRunner.run(sql, values)
     end
-
 end

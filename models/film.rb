@@ -28,4 +28,13 @@ class Film
       values = [@id]
       SqlRunner.run(sql, values)
     end
+
+    def self.delete_all()
+      sql = "DELETE FROM films;"
+      SqlRunner.run(sql)
+    end
+
+    def self.map_items(items)
+    return items.map { |item| self.new(item)}
+    end
 end

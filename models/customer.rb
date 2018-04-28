@@ -35,11 +35,26 @@ class Customer
     SqlRunner.run(sql)
   end
 
+  # Show which films a customer has booked to see
   def find_customer_films
-    sql = "SELECT films.* FROM customers
+    sql = "SELECT films.* 
+    FROM customers
     INNER JOIN tickets ON customers.id = tickets.customer_id
     INNER JOIN films ON tickets.film_id = films.id
     WHERE customers.id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    result = results.map{|hash| Film.new(hash)}
+    return result
+  end
+
+  # See which customers are coming to see one film
+  def find_film_customers
+    sql = "SELECT films.* 
+    FROM customers 
+    INNER JOIN tickets ON customers.id = tickets.customer_id 
+    INNER JOIN films ON tickets.film_id = films.id 
+    WHERE films.title = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
     result = results.map{|hash| Film.new(hash)}

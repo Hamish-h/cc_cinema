@@ -1,4 +1,4 @@
-Created local host database named "cc_cinema" containing data for
+Created local host database named "cc_cinema" containing tables
 
 Customers
 - name
